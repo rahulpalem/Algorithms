@@ -1,0 +1,28 @@
+def partition(List,l,h):
+    i = (l-1)
+    pivot = List[h]
+    for j in range(l,h):
+        if List[j] <= pivot:
+            i = i+1
+            List[i],List[j] = List[j],List[i]
+    List[i+1],List[h] = List[h],List[i+1]
+    return (i+1)
+  
+def quicksort(List,l,h):
+    if len(List) == 1:
+        return List
+    if l<h:
+        p=partition(List,l,h)
+        quickSort(List,l,p-1)
+        quickSort(List,p+1,h)
+             
+List = []
+n=int(input("enter no of elements:"))
+for i in range(0,n):
+    ele=int(input())
+    List.append(ele)
+print("Given list is", end="\n")
+print(List)
+quicksort(List,0,n-1)
+print("Sorted list is: ", end="\n")
+print(List)
