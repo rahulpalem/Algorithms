@@ -1,0 +1,22 @@
+list=[]
+flag=0
+n=int(input("enter no of elements:"))
+x=int(input("enter value to be searched:"))
+for i in range(0,n):
+    ele=int(input())
+    list.append(ele)
+l=0
+h=n-1
+flag=0
+while l<=h:
+    mid=l + (h - l) // 2
+    if(list[mid]==x):
+        flag=1
+        print("Element is found at position:",mid)
+        break
+    elif(list[mid]>x):
+        h=mid-1
+    else:
+        l=mid+1
+if(flag==0):
+    print("Element not found")    
